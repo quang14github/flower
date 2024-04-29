@@ -10,7 +10,11 @@ from omegaconf import DictConfig
 
 import client, utils
 
-DEVICE: torch.device = torch.device("cpu")
+cuda = torch.cuda.is_available()
+if cuda:
+    cuda_device = torch.cuda.current_device()
+    print(f"Using CUDA device {cuda_device}")
+DEVICE: torch.device = torch.device(f"cuda:{cuda_device}" if cuda else "cpu")
 
 
 @hydra.main(config_path="docs/conf", config_name="config", version_base=None)
