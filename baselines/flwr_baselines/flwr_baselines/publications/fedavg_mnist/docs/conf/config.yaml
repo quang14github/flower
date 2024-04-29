@@ -1,5 +1,5 @@
-num_clients: 10
-num_rounds: 10
+num_clients: 100
+num_rounds: 200
 num_epochs: 5
 batch_size: 10
 iid: False
