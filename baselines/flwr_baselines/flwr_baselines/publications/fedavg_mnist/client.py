@@ -123,6 +123,6 @@ def gen_client_fn(
         # Create a  single Flower client representing a single organization
         return FlowerClient(
             net, trainloader, valloader, device, num_epochs, learning_rate
-        )
+        ).to_client()
 
     return client_fn, testloader
