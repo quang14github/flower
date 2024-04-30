@@ -127,6 +127,7 @@ def gen_evaluate_fn(
 
         loss, accuracy = model.test(net, testloader, device=device)
         # return statistics
+        print(f"Server-side evaluation loss {loss} / accuracy {accuracy}")
         return loss, {"accuracy": accuracy}
 
     return evaluate
